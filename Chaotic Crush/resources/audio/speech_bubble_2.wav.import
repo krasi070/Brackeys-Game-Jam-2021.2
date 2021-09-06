@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/speech_bubble_2.wav-97b080bf11b75995514ec30c9ec73e59.sample"
+
+[deps]
+
+source_file="res://resources/audio/speech_bubble_2.wav"
+dest_files=[ "res://.import/speech_bubble_2.wav-97b080bf11b75995514ec30c9ec73e59.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

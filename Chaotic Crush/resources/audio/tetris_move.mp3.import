@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tetris_move.mp3-eb1cdf51ea4a917715cdc978e5204fdd.mp3str"
+
+[deps]
+
+source_file="res://resources/audio/tetris_move.mp3"
+dest_files=[ "res://.import/tetris_move.mp3-eb1cdf51ea4a917715cdc978e5204fdd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

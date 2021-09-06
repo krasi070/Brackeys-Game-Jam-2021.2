@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/scenes/ui/GameUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/scenes/alphabet_game/objects/Pupil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/alphabet_game/AlphabetGame.gd" type="Script" id=3]
+[ext_resource path="res://resources/sprites/alphabet_game/1bg.png" type="Texture" id=4]
+[ext_resource path="res://resources/sprites/alphabet_game/desk.png" type="Texture" id=5]
+[ext_resource path="res://resources/sprites/alphabet_game/ch.png" type="Texture" id=6]
+[ext_resource path="res://resources/scenes/alphabet_game/objects/PlayerPupil.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/scenes/ui/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://resources/scenes/ui/Timer.tscn" type="PackedScene" id=9]
+
+[node name="AlphabetGame" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Color" type="Sprite" parent="."]
+position = Vector2( 480, 270 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="DesksBack" type="Sprite" parent="."]
+position = Vector2( 456, 270 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Pupil1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 135, 390 )
+
+[node name="Pupil2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 390 )
+
+[node name="Pupil3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 585, 390 )
+
+[node name="PlayerPupil" parent="." instance=ExtResource( 7 )]
+position = Vector2( 790, 390 )
+
+[node name="DesksFront" type="Sprite" parent="."]
+position = Vector2( 456, 270 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Timer" parent="." instance=ExtResource( 9 )]
+controls_text = "use  wasd"
+
+[node name="GameUI" parent="." instance=ExtResource( 1 )]
+visible = false
+info_text = "GET IT WRONG!"
+
+[node name="Transition" parent="." instance=ExtResource( 8 )]
+visible = false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/scenes/alphabet_game/objects/SpeechBubble.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/sprites/alphabet_game/cu2.png" type="Texture" id=2]
+[ext_resource path="res://resources/sprites/alphabet_game/cu.png" type="Texture" id=3]
+[ext_resource path="res://scripts/alphabet_game/Pupil.gd" type="Script" id=4]
+
+[node name="PlayerPupil" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Default" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="OpenMouth" type="Sprite" parent="."]
+position = Vector2( 0.5, -1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="SpeechBubble" parent="." instance=ExtResource( 1 )]
+position = Vector2( 44, -150 )
