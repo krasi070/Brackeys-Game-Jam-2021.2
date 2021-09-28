@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/golf_game/Hole.gd" type="Script" id=1]
+[ext_resource path="res://scripts/golf_game/Course.gd" type="Script" id=2]
+[ext_resource path="res://resources/sprites/golf_game/gm.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 44.0351, 10 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 3.86641
+
+[node name="Course" type="Area2D" groups=[
+"wall",
+]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 480, 270 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 489.51, 167.029 )
+shape = SubResource( 1 )
+
+[node name="Hole" type="Area2D" parent="." groups=[
+"hole",
+]]
+position = Vector2( 492.721, 184.1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole"]
+shape = SubResource( 3 )
+
+[node name="PointA" type="Node2D" parent="."]
+position = Vector2( 460.098, 179.104 )
+
+[node name="PointB" type="Node2D" parent="."]
+position = Vector2( 474.13, 179.55 )
+
+[node name="PointC" type="Node2D" parent="."]
+position = Vector2( 491.502, 178.882 )
+
+[node name="PointD" type="Node2D" parent="."]
+position = Vector2( 505.979, 179.104 )
+
+[node name="PointE" type="Node2D" parent="."]
+position = Vector2( 518.452, 179.55 )
+
+[connection signal="area_entered" from="Hole" to="Hole" method="_on_Hole_area_entered"]

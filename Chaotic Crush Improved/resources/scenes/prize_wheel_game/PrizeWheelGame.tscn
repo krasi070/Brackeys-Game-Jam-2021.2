@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resources/scenes/prize_wheel_game/objects/PrizeWheelOne.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/scenes/prize_wheel_game/objects/PrizeWheelTwo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/sprites/prize_wheel_game/bg.png" type="Texture" id=3]
+[ext_resource path="res://scripts/prize_wheel_game/Pointer.gd" type="Script" id=4]
+[ext_resource path="res://resources/scenes/ui/GameUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/scenes/ui/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resources/scenes/ui/Timer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/sprites/prize_wheel_game/center.png" type="Texture" id=8]
+[ext_resource path="res://resources/sprites/prize_wheel_game/arrow.png" type="Texture" id=9]
+[ext_resource path="res://scripts/prize_wheel_game/PrizeWheelGame.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.5, 81.8063 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "select"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 35 ) ]
+}
+
+[node name="PrizeWheelGame" type="Node"]
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 480, 270 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Wheel" type="Node2D" parent="."]
+position = Vector2( 480, 260 )
+
+[node name="PrizeWheelOne" parent="Wheel" instance=ExtResource( 1 )]
+
+[node name="PrizeWheelTwo" parent="Wheel" instance=ExtResource( 2 )]
+position = Vector2( 0, 7 )
+
+[node name="Center" type="Sprite" parent="Wheel"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Pointer" type="Area2D" parent="."]
+position = Vector2( 720, 265 )
+rotation = 1.5708
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Pointer"]
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
+position = Vector2( -6, 0 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pointer"]
+anims/select = SubResource( 3 )
+
+[node name="Timer" parent="." instance=ExtResource( 7 )]
+margin_left = -8.08939
+margin_top = -2.66855
+margin_right = -8.08936
+margin_bottom = -2.66858
+controls_text = "press  space"
+
+[node name="GameUI" parent="." instance=ExtResource( 5 )]
+visible = false
+info_text = "LOSE!"
+
+[node name="Transition" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[connection signal="area_entered" from="Pointer" to="Wheel/PrizeWheelOne" method="_on_Pointer_area_entered"]
+[connection signal="area_entered" from="Pointer" to="Wheel/PrizeWheelTwo" method="_on_Pointer_area_entered"]
+[connection signal="stopped" from="Pointer" to="Wheel/PrizeWheelOne" method="_on_Pointer_stopped"]
+[connection signal="stopped" from="Pointer" to="Wheel/PrizeWheelTwo" method="_on_Pointer_stopped"]
