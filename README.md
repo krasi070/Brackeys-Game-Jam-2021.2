@@ -14,6 +14,9 @@ Pursue your crush through a set of 6 mini-games encompassing classic arcade-y vi
 <p>
 The twist of the game is that you are not required to beat the mini-games. Quite the opposite, you have to fail them in order to show your crush the kinda guy you are. Well, are you ready to give it a shot?
 </p>
+<p>
+The improved version of the game has small improvements on some of the mini-games and a complete rework on the block mini-game. Transitions are also faster. The HTML5 game is the original jam version.
+</p>
 <h3>Screenshots</h3>
 <div>
 <img src="https://img.itch.zone/aW1hZ2UvMTE3NzQzNy82ODU2MDI0LnBuZw==/347x500/d13PIA.png" alt="Screenshot from the visual novel section of the game" width="320" height="180">
